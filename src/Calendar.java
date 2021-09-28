@@ -9,14 +9,14 @@ public class Calendar {
 		System.out.println("15 16 17 18 19 20 21");
 		System.out.println("22 23 24 25 26 27 28");
 		
-		Scanner scan = new Scanner(System.in);
-		System.out.print("두 수를 입력해주세요 : ");
-		String inputValue = scan.nextLine();
-		scan.close();
-		String[] values = inputValue.split(" ");
-		int A = Integer.parseInt(values[0]);
-		int B = Integer.parseInt(values[1]);
+		System.out.println("");
 		
-		System.out.print(A + B);
+		Scanner scan = new Scanner(System.in);
+		System.out.print("달을 입력해주세요 : ");
+		int inputMonth = scan.nextInt();
+		scan.close();
+		int max_days[] = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		
+		System.out.printf("%d월의 마지막 일은 %d 입니다.", inputMonth, max_days[inputMonth - 1]);
 	}
 }
