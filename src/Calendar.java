@@ -19,12 +19,19 @@ public class Calendar {
 		System.out.println("22 23 24 25 26 27 28");
 		
 		System.out.println("");
-		
 		Scanner scan = new Scanner(System.in);
-		System.out.print("달을 입력해주세요 : ");
-		int inputMonth = scan.nextInt();
-		scan.close();
 		Calendar cal = new Calendar();
-		System.out.printf("%d월의 마지막 일은 %d 입니다.", inputMonth, cal.outMaxDays(inputMonth));
+		int inputMonth = 0;
+		while(true) {
+			System.out.print("달을 입력해주세요 : ");
+			inputMonth = scan.nextInt();
+			if (inputMonth == -1) {
+				break;
+			}
+			System.out.printf("%d월의 마지막 일은 %d 입니다.\n", inputMonth, cal.outMaxDays(inputMonth));
+			
+		}
+		System.out.print("종료");
+		scan.close();
 	}
 }
