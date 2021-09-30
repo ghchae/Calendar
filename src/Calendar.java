@@ -17,27 +17,34 @@ public class Calendar {
 			default: return 0;
 		}
 	}
+	public void createBlank(String day) {
+		for (int i = 1; i <= getDayNumber(day); i++) {
+			System.out.print("   ");
+		}
+	}
+	public void printStartDay(int weakDay) {
+		for (int i = 1; i <= weakDay; i++) {
+			checkNumber(i);
+			System.out.print(i + " ");
+		}
+		System.out.println();
+	}
+	public void checkNumber(int i) {
+		if (i < 10) {
+			System.out.print(" ");
+		}
+	}
 	public void printCalendar(int year,int month, int maxDay, String day) {
 		System.out.printf("<<%d년 %d월 %s요일 시작 >>\n", year, month, day);
 		System.out.println("일   월   화   수   목   금   토");
 		System.out.println("--------------------");
-		for (int j = 1; j <= getDayNumber(day); j++) {
-			System.out.print("   ");
-		}
-		for (int t = 1; t <= (7-getDayNumber(day)); t++) {
-			if (t < 10) {
-				System.out.print(" ");
-			}
-			System.out.print(t + " ");
-		}
-		System.out.println();
-		
+		createBlank(day);
+		int weakDay = 7 - getDayNumber(day);
+		printStartDay(weakDay); //시작 요일을 알맞게 출력
 		for (int i = 8-getDayNumber(day); i <= maxDay; i++) {
-			if (i < 10) {
-				System.out.print(" ");
-			}
+			checkNumber(i);
 			System.out.print(i + " ");
-			if (i % 7 == 7-getDayNumber(day)) System.out.println();
+			if (i % 7 == weakDay) System.out.println();
 		}
 		System.out.println();
 	}
